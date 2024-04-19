@@ -134,3 +134,28 @@ def plotTrainValLosses(hist):
     plt.ylabel('Loss')
     plt.legend()
     plt.show()
+
+# def cp_fnr_setup(model, SEED, alpha=0.1)
+    
+#     X_train, Y_train, X_calibration, Y_calibration, X_test, Y_test = load_data_splits(SEED=SEED)
+    
+#     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    
+#     pred_raw = model(torch.tensor(X_calibration, dtype=torch.float32).to(device))
+#     cal_sgmd = np.round(pred_raw.detach().cpu().numpy(), decimals=5)
+#     cal_labels = Y_calibration
+#     pred_raw = model(torch.tensor(X_test, dtype=torch.float32).to(device))
+#     val_sgmd = np.round(pred_raw.detach().cpu().numpy(), decimals=5)
+#     val_labels = Y_test
+
+#     n = len(X_calibration)
+#     # Run the conformal risk control procedure
+#     def lamhat_threshold(lam): return fnr_weighted(cal_sgmd>=lam, cal_labels) - ((n+1)/n*alpha - 1/(n+1))
+#     lamhat = brentq(lamhat_threshold, 0.0001, 0.9999)
+#     # prediction_sets = val_sgmd >= lamhat
+    
+#     prediction_sets = val_sgmd >= lamhat
+#     # Calculate empirical FNR
+#     print(f"The empirical FNR is: {fnr_weighted(prediction_sets, val_labels)} and the threshold value is: {lamhat}")
+    
+#     eval_metrics(Y_test, prediction_sets)
