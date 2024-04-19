@@ -38,3 +38,4 @@ def train_model(model, train_loader, val_loader, num_epochs=10, learning_rate=0.
         print("saving to", 'ckpts/{}-{}.pth'.format(model.name, formatted_datetime))
     
     return lossTrain, lossVal
+    
