@@ -135,6 +135,7 @@ def plotTrainValLosses(hist):
     plt.legend()
     plt.show()
 
+    
 # def cp_fnr_setup(model, SEED, alpha=0.1)
     
 #     X_train, Y_train, X_calibration, Y_calibration, X_test, Y_test = load_data_splits(SEED=SEED)
